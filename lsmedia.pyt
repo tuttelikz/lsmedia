@@ -7,7 +7,7 @@ def lsmedia(mypath):
     aud_fm = (".flac", ".mp3", ".wav", ".wma", ".aac")
     media_fms = {"image": img_fm, "video": vid_fm, "audio": aud_fm}
 
-    fns = lambda path, media : [fn for fn in os.listdir(path) if any(fn.endswith(media_fms[media]) for ext in media_fms[media])]
+    fns = lambda path, media : [fn for fn in os.listdir(path) if any(fn.lower().endswith(media_fms[media]) for ext in media_fms[media])]
     img_fns, vid_fns, aud_fns = fns(mypath, "image"), fns(mypath, "video"), fns(mypath, "audio")
 
     print(f"State of media in '{mypath}'")
